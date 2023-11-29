@@ -1,0 +1,19 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<h1>Announcements</h1>
+<h5>Here, Admin will post important information about the website.</h5>
+{% for announcement in announcements %}
+    <article class="card border-light mb-3 mt-5 p-3 pl-3">
+      <img class="rounded-circle article-img" src="{{ announcement.author.profile.image.url }}">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2 text-danger" href="{% url 'user-lists' announcement.author.username %}">{{ announcement.author }}</a>
+          <small class="text-muted">{{ announcement.date_posted|date:"F d, Y" }}</small>
+        </div>
+        <h2><a class="text-info" href="{% url 'announcements' announcement.id %}">{{ announcement.title }}</a></h2>
+        <p class="article-content">{{ announcement.content }}</p>
+      </div>
+    </article>
+{% endfor %}
+{% endblock content %}

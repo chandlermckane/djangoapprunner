@@ -1,0 +1,25 @@
+{% extends "todo/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card border-light mb-3 mt-5 p-5">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Feedback</legend>
+            <p>Feel free to let us know about issues regarding you experience with the website <br>or just tell us how well we are doing:)</p>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "todo/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card border-light mb-3 mt-5 p-5">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">You must create an account or log in</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button  class="btn btn-outline-secondary" type="submit">Login</button>
+                <small class="text-muted m-3">
+                    <a class="text-danger" href="{% url 'password_reset' %}">Forgot Password?</a>
+                </small>
+            </div>
+        </form>
+        <div class="border-top pt-5 ml-3">
+            <small class="text-muted">
+                
+                <p>Need An Account?</p> <a class=" btn btn-info" href="{% url 'register' %}">Sign Up Now</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %} 
