@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'users.apps.UsersConfig',
     'crispy_bootstrap5',
-    'storages'
+    'storages',
+    'imagekit',
 ]
 
 MIDDLEWARE = [

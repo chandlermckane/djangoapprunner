@@ -1,11 +1,14 @@
 {% extends "todo/base.html" %}
 {% block content %}
   <article class="card border-light mb-3 mt-5 p-5">
-    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+    <div class="media">
+    <img class="rounded-circle article-img" src="{{ list.author.profile.image_thumbnail.url }}">
+    
     <div class="media-body">
       <div class="article-metadata">
         <a class="mr-2 text-danger" href="{% url 'user-lists' list.author.username %}">{{ list.author }}</a>
         <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+      </div>
         {% if object.author == user %}
           <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'list-update' object.id %}">Update</a>
