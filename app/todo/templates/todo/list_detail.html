@@ -6,7 +6,7 @@
     
     <div class="media-body">
       <div class="article-metadata">
-        <a class="mr-2 text-danger" href="{% url 'user-lists' list.author.username %}">{{ list.author }}</a>
+        <a class="mr-2 text-danger" href="{% url 'user-lists' list.author.username %}" style="text-decoration: none;">{{ list.author }}</a>
         <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
       </div>
         {% if object.author == user %}
@@ -16,7 +16,7 @@
           </div>
         {% endif %}
       </div>
-      <h2 >{{ object.title }}</h2>
+      <h2 class="text-info">{{ object.title }}</h2>
       <p class="article-content">{{ object.content }}</p>
     </div>
   </article>

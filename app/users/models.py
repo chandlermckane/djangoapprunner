@@ -9,7 +9,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     image_thumbnail = ImageSpecField(source='image',
-                                      processors=[ResizeToFill(300, 300)],
+                                      processors=[ResizeToFill(100 , 100)],
                                       format='JPEG',
                                       options={'quality': 60})
     

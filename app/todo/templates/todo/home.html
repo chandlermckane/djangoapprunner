@@ -6,10 +6,10 @@
         <img class="rounded-circle article-img" src="{{ list.author.profile.image_thumbnail.url }}">
             <div class="media-body">
               <div class="article-metadata">
-                <a class="mr-2 text-danger" href="{% url 'user-lists' list.author.username %}">{{ list.author }}</a>
+                <a class="mr-2 text-danger" href="{% url 'user-lists' list.author.username %}" style="text-decoration: none;">{{ list.author }}</a>
                 <small class="text-muted">{{ list.date_posted|date:"F d, Y" }}</small>
               </div>
-              <h2 class="text-info"><a class="card-title" href="{% url 'list-detail' list.id %}">{{ list.title }}</a></h2>
+              <h2 class="text-info"><a class="card-title" href="{% url 'list-detail' list.id %}" style="text-decoration: none;">{{ list.title }}</a></h2>
               <p class="article-content">{{ list.content }}</p>
             </div>
           </div> 
