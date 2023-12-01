@@ -1,10 +1,11 @@
 asgiref==3.7.2
 boto3==1.33.2
-botocore
+botocore==1.33.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
 crispy-bootstrap5==2023.10
 dependency-check==0.6.0
+distlib==0.3.7
 Django==4.2.7
 django-appconf==1.0.6
 django-bootstrap5==23.3
@@ -12,12 +13,14 @@ django-crispy-forms==2.1
 django-imagekit==5.0.0
 django-storages==1.14.2
 docopt==0.6.2
+filelock==3.13.1
 gunicorn==20.1.0
 idna==3.6
 jmespath==1.0.1
 pilkit==3.0
 Pillow==10.1.0
 pipreqs==0.4.13
+platformdirs==4.0.0
 python-dateutil==2.8.2
 requests==2.31.0
 s3transfer==0.8.1
@@ -25,5 +28,6 @@ setuptools==69.0.2
 six==1.16.0
 sqlparse==0.4.4
 tzdata==2023.3
-urllib3
+urllib3==2.0.7
+virtualenv==20.24.7
 yarg==0.1.9
