@@ -1,32 +1,4 @@
 import os 
-from pathlib import Path
-import boto3
-from botocore.exceptions import ClientError
-
-def get_secret():
-
-    secret_name = "django/secerets"
-    region_name = "us-east-1"
-
-    # Create a Secrets Manager client
-    session = boto3.session.Session()
-    client = session.client(
-        service_name='secretsmanager',
-        region_name=region_name
-    )
-
-    try:
-        get_secret_value_response = client.get_secret_value(
-            SecretId=secret_name
-        )
-    except ClientError as e:
-        # For a list of exceptions thrown, see
-        # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
-        raise e
-
-    # Decrypts secret using the associated KMS key.
-    secret = get_secret_value_response['SecretString']
-    return secret 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,12 +9,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 
-SECRET_KEY = os.environ.get('SECRET_KEY') 
+SECRET_KEY = 'mbp28jte(!5mvw=p^iz1pe!l(nsg%e(m+&n#2tcq9+m=o4822t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [".awsapprunner.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -151,16 +123,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'chandlermckane@gmail.com'
+EMAIL_HOST_PASSWORD = 'qpuz oyen gcii mdte'
 
 AWS_S3_REGION_NAME = 'us-east-1' # Your region name
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = 'AKIA4W7EDVK7EWEPCC5R'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'django-blog-blogapp'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
@@ -170,3 +142,4 @@ AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
