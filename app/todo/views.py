@@ -23,7 +23,7 @@ def home(request):
 
 class ListView(LoginRequiredMixin, ListView):
     model = List
-    template_name = 'todo/home.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'todo/home.html'  
     context_object_name = 'lists'
     ordering = ['-date_posted']
     paginate_by = 5
@@ -31,7 +31,7 @@ class ListView(LoginRequiredMixin, ListView):
 
 class UserListsView(ListView):
     model = List
-    template_name = 'todo/user_lists.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'todo/user_lists.html'  
     context_object_name = 'lists'
     paginate_by = 5
     
