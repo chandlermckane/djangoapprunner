@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 
-SECRET_KEY = 'mbp28jte(!5mvw=p^iz1pe!l(nsg%e(m+&n#2tcq9+m=o4822t'
+SECRET_KEY = os.environ.get('django-sk')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -108,7 +108,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'https://bootswatch.com/5/vapor/bootstrap.min.css/static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -122,16 +123,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'chandlermckane@gmail.com'
-EMAIL_HOST_PASSWORD = 'qpuz oyen gcii mdte'
+EMAIL_HOST_USER = os.environ.get('email')
+EMAIL_HOST_PASSWORD = os.environ.get('pass')
 
 AWS_S3_REGION_NAME = 'us-east-1' # Your region name
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 
-AWS_ACCESS_KEY_ID = 'AKIA4W7EDVK7EWEPCC5R'
-AWS_SECRET_ACCESS_KEY = 'rIMM+Eg8wJplMhzHs5cYgP8tmwBrEcyVfXqlN+sR'
-AWS_STORAGE_BUCKET_NAME = 'django-blog-blogapp'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
