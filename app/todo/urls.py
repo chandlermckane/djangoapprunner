@@ -10,6 +10,8 @@ from .views import (
   
 )
 from . import views
+from ai import views as ai_views
+
 
 
 urlpatterns = [
@@ -23,4 +25,5 @@ urlpatterns = [
     path('announcements/<int:pk>/', AnnouncementsView.as_view(), name='announcements'),
     path('feedback/<int:pk>', views.FeedbackView.as_view(), name='feedback'), 
     path('calendar/', views.CalendarView.as_view(), name='calendar'),
+    path('ai/', ai_views.ai, name='ai'),
     ]

@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from users import views as user_views
 from todo import views as todo_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('feedback/', todo_views.FeedbackView.as_view(), name='feedback'),
@@ -35,6 +36,7 @@ urlpatterns = [
          ),
          name='password_reset_complete'),
     path('', include('todo.urls')),
+    path('ai/', include('ai.urls')),
     
     
 ]
